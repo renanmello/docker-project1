@@ -1,0 +1,19 @@
+version: "3"
+services:
+  webapp:
+    image: your-webapp-image:latest
+    ports:
+      - 80:80
+    restart: always
+  mysql:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: your-root-password
+      MYSQL_DATABASE: your-database-name
+      MYSQL_USER: your-username
+      MYSQL_PASSWORD: your-password
+    ports:
+      - 3306:3306
+    volumes:
+      - ./data:/var/lib/mysql
+    restart: always
